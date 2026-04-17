@@ -221,3 +221,12 @@
   }
   .flip-card { height: 360px; }
 }
+
+@media (max-width: 600px) {
+  .skills-grid { max-width: 100%; }
+  .flip-card { height: 340px; }
+  .flip-front, .flip-back { padding: 1.5rem; }
+  .flip-title { font-size: 1.2rem; }
+  .flip-skill-name { width: 90px; font-size: 0.68rem; }
+  .flip-hint { display: none; }
+}

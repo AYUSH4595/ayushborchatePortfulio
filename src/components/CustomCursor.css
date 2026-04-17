@@ -31,3 +31,11 @@ body {
 a, button, input, textarea, select {
   cursor: none; /* Keep hidden on interactive elements */
 }
+
+/* Show default cursor on touch/mobile devices */
+@media (max-width: 1024px), (hover: none) {
+  body { cursor: auto !important; }
+  a, button, input, textarea, select { cursor: auto !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+

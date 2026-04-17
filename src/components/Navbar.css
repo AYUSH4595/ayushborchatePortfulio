@@ -266,3 +266,10 @@
   .desktop-only { display: none; }
   .mobile-menu-btn { display: block; }
 }
+
+@media (max-width: 480px) {
+  .navbar-neon { padding: 1rem 0; }
+  .brand-name { font-size: 1.4rem; }
+  .brand-tag { display: none; }
+  .brand-logo-glow { width: 38px; height: 38px; }
+}

@@ -323,9 +323,23 @@
 }
 
 @media (max-width: 768px) {
-  .hero { min-height: auto; padding: 140px 0 60px; }
-  .hero-heading { font-size: 14vw; }
-  .hologram-container { height: 350px; }
-  .floating-widget { width: 120px; padding: 0.8rem; }
-  .code-snippet { font-size: 0.7rem; }
+  .hero { min-height: auto; padding: 120px 0 60px; }
+  .hero-heading { font-size: 13vw; letter-spacing: -1px; }
+  .hologram-container { height: 300px; max-width: 340px; }
+  .floating-widget { display: none; }
+  .hero-description { font-size: 0.95rem; }
+  .role-slider { width: 100%; }
+  .role-text-tech { font-size: 1.1rem; }
 }
+
+@media (max-width: 480px) {
+  .hero { padding: 110px 0 50px; }
+  .hero-heading { font-size: 15vw; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions a, .hero-actions button { width: 100%; justify-content: center; }
+  .system-status { font-size: 0.65rem; }
+  .hologram-container { height: 240px; }
+  .code-snippet { font-size: 0.65rem; }
+  .main-glass-frame { padding: 1rem; }
+}
+

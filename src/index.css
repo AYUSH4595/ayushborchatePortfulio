@@ -82,6 +82,16 @@ button {
   padding: 0 4rem;
 }
 
+@media (max-width: 1024px) {
+  .container { padding: 0 2rem; }
+}
+
+@media (max-width: 600px) {
+  .container { padding: 0 1.2rem; }
+  .section { padding: 3rem 0; }
+  .section-title { font-size: 2.8rem; }
+}
+
 .section {
   padding: 4rem 0;
   position: relative;

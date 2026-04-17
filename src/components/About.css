@@ -291,4 +291,15 @@
 @media (max-width: 600px) {
   .about-stats { grid-template-columns: repeat(2, 1fr); }
   .stat-value { font-size: 1.5rem; }
+  .about-photo { width: 160px; height: 200px; }
+  .code-and-photo-wrapper { flex-direction: column; padding-right: 0; }
+  .tech-code-block { font-size: 0.68rem; overflow-x: auto; }
+  .about-text p { font-size: 0.95rem; }
+  .about-tech-card { overflow-x: hidden; }
+}
+
+@media (max-width: 380px) {
+  .about-stats { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .stat-value { font-size: 1.3rem; }
+  .stat-label { font-size: 0.58rem; }
 }
