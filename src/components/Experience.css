@@ -1,0 +1,128 @@
+/* ═══════════════════════════════════════════
+   EXPERIENCE & EDUCATION
+═══════════════════════════════════════════ */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30px;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, #00e5ff, #b200ff, #ff007b, #00ff88);
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 4rem;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+
+/* Colored dot */
+.timeline-dot {
+  position: absolute;
+  left: -2px;
+  top: 1.2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.2) rotate(15deg);
+}
+
+/* Content card */
+.timeline-content {
+  padding: 1.5rem 1.8rem;
+  border-radius: 1rem;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 0 20px color-mix(in srgb, var(--exp-color, #00e5ff) 30%, transparent);
+}
+
+/* Colored top accent bar */
+.exp-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 60%;
+  opacity: 0.7;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.timeline-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-tech);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.9rem;
+  border-radius: 30px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid currentColor;
+}
+
+.timeline-company {
+  font-family: var(--font-tech);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  opacity: 0.85;
+}
+
+.timeline-desc {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .timeline { padding-left: 1rem; }
+  .timeline::before { left: 20px; }
+  .timeline-item { padding-left: 3rem; }
+  .timeline-dot { width: 36px; height: 36px; }
+  .timeline-title { font-size: 1rem; }
+}

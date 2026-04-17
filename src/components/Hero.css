@@ -1,0 +1,331 @@
+/* ═══════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 4vw 4vw;
+  background-position: center;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-split-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  width: 100%;
+}
+
+/* ── LEFT SIDE ── */
+.hero-left {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.system-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-tech);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-glow);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-heading {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 7vw, 8.5rem);
+  line-height: 0.9;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  text-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.role-slider {
+  height: 2.5rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: rgba(0, 229, 255, 0.1);
+  border-left: 5px solid var(--accent);
+  padding: 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.role-text-tech {
+  font-family: var(--font-tech);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2), transparent);
+  margin-left: 1rem;
+}
+
+.social-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px; /* More cinematic/tech than circle */
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+}
+
+.social-icon-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-3px);
+}
+
+/* ── RIGHT SIDE (Hologram) ── */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1000px;
+}
+
+.hologram-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  animation: floatHologram 10s ease-in-out infinite;
+}
+
+@keyframes floatHologram {
+  0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(-5deg); }
+  50% { transform: translateY(-15px) rotateX(8deg) rotateY(-2deg); }
+}
+
+.hologram-core {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: var(--accent);
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.main-glass-frame {
+  position: relative;
+  width: 90%;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1), inset 0 0 20px rgba(0, 229, 255, 0.05);
+  z-index: 2;
+}
+
+.mac-dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.mac-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.mac-dot.red { background-color: #ff5f56; }
+.mac-dot.yellow { background-color: #ffbd2e; }
+.mac-dot.green { background-color: #27c93f; }
+
+.code-snippet {
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--accent); /* Adaptable tech color */
+  overflow-x: hidden;
+}
+
+.code-snippet code {
+  font-family: inherit;
+}
+
+/* Floating Widgets */
+.floating-layer {
+  position: absolute;
+  z-index: 3;
+  left: -5%;
+  top: 15%;
+}
+
+.floating-layer.pos-2 {
+  left: auto;
+  right: -5%;
+  top: 40%;
+}
+
+.floating-layer.pos-3 {
+  left: 10%;
+  top: auto;
+  bottom: 10%;
+}
+
+.floating-widget {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  width: 160px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.widget-text {
+  font-family: var(--font-tech);
+  font-size: 0.7rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.widget-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.widget-line {
+  height: 4px;
+  background: var(--text-secondary);
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
+.w-full { width: 100%; }
+.w-3\/4 { width: 75%; }
+.w-1\/2 { width: 50%; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-split-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .hero-left {
+    align-items: center;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .social-line {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: auto; padding: 140px 0 60px; }
+  .hero-heading { font-size: 14vw; }
+  .hologram-container { height: 350px; }
+  .floating-widget { width: 120px; padding: 0.8rem; }
+  .code-snippet { font-size: 0.7rem; }
+}

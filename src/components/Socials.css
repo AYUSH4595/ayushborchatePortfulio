@@ -1,0 +1,123 @@
+.socials-container {
+  padding: 4rem;
+  border-radius: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+}
+
+.socials-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.socials-header {
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.socials-header h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.socials-header span {
+  background: linear-gradient(135deg, var(--accent), #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.socials-header p {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+.social-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 1.5rem;
+  min-width: 140px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.social-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--brand-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.3s ease;
+  filter: blur(15px);
+}
+
+.social-card:hover {
+  background: var(--card-bg);
+  border-color: var(--brand-color);
+  box-shadow: 0 15px 30px -5px rgba(0,0,0,0.1), 0 0 20px -5px var(--brand-color);
+}
+
+.social-card:hover .social-icon {
+  color: var(--brand-color);
+  transform: scale(1.1);
+}
+
+.social-card:hover .social-icon::after {
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+}
+
+.social-name {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .socials-container {
+    padding: 3rem 1.5rem;
+  }
+  .social-cards {
+    gap: 1.5rem;
+  }
+  .social-card {
+    min-width: 120px;
+    padding: 1.5rem 1rem;
+  }
+}

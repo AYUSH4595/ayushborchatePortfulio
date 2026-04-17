@@ -1,0 +1,33 @@
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+body {
+  cursor: none; /* Hide default cursor */
+}
+
+a, button, input, textarea, select {
+  cursor: none; /* Keep hidden on interactive elements */
+}

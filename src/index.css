@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg-primary: #040405; /* Pure dark cinematic background */
+  --bg-secondary: #0a0a0d;
+  --text-primary: #ffffff;
+  --text-secondary: #8a8a93;
+  --accent: #00e5ff; /* Cyan tech accent */
+  --accent-hover: #00b3cc;
+  --accent-glow: rgba(0, 229, 255, 0.4);
+  --card-bg: rgba(10, 10, 13, 0.6);
+  --border-color: rgba(0, 229, 255, 0.15);
+  
+  --font-display: 'Anton', sans-serif;
+  --font-tech: 'Space Mono', monospace;
+  --font-body: 'Space Grotesk', sans-serif;
+}
+
+[data-theme='light'] {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #e9ecef;
+  --text-primary: #1a1a1f;
+  --text-secondary: #555566;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --accent: #0099ff; /* Brighter blue for light mode */
+  --accent-hover: #007acc;
+  --accent-glow: rgba(0, 153, 255, 0.3);
+  --vignette: rgba(255,255,255,0.8);
+  --grid-color: rgba(0, 153, 255, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Subtle cinematic grain/texture could be added here */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, transparent 60%, var(--vignette, rgba(0,0,0,0.8)) 150%),
+    linear-gradient(var(--grid-color, rgba(0,229,255,0.02)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color, rgba(0,229,255,0.02)) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1400px; /* Wider for cinematic */
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.section {
+  padding: 4rem 0;
+  position: relative;
+  z-index: 5;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  color: var(--text-primary);
+}
+
+.section-title span {
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Base App Layout */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* ── AWESOME TEXT ANIMATIONS ── */
+.text-gradient-animated {
+  background: linear-gradient(
+    to right,
+    #00e5ff,
+    #b200ff,
+    #ff007b,
+    #00e5ff
+  );
+  background-size: 300% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shineGradient 4s linear infinite;
+}
+
+@keyframes shineGradient {
+  to {
+    background-position: 300% center;
+  }
+}
+
+.text-liquid {
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--accent);
+}
+
+.text-liquid::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  overflow: hidden;
+  animation: waveFill 4s ease-in-out infinite alternate;
+  border-right: 2px solid var(--accent);
+  filter: drop-shadow(0 0 15px var(--accent));
+}
+
+@keyframes waveFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* ── AWESOME BUTTON ANIMATIONS ── */
+.btn-neo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2.5rem;
+  background-color: var(--card-bg);
+  color: #fff;
+  font-family: var(--font-tech);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.btn-neo::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 229, 255, 0.8),
+    rgba(178, 0, 255, 0.8),
+    transparent
+  );
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.btn-neo:hover {
+  transform: translateY(-5px) scale(1.03);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 30px rgba(0, 229, 255, 0.3), 0 0 40px rgba(178, 0, 255, 0.2);
+}
+
+.btn-neo:hover::before {
+  left: 100%;
+  animation: sweep 2s infinite linear;
+}
+
+@keyframes sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.btn-neo-outline {
+  background: transparent;
+  border: 1px dashed var(--accent);
+  color: var(--accent);
+}
+
+.btn-neo-outline::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 0, 123, 0.6),
+    rgba(0, 229, 255, 0.6),
+    transparent
+  );
+}
+
+.btn-neo-outline:hover {
+  border-style: solid;
+  border-color: #ff007b;
+  color: #fff;
+  box-shadow: 0 15px 30px rgba(255, 0, 123, 0.3);
+}
