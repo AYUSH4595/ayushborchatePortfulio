@@ -111,13 +111,19 @@
 
 @media (max-width: 768px) {
   .socials-container {
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.2rem;
   }
+  .socials-header h2 { font-size: 2.2rem; }
+  .socials-header p { font-size: 1rem; }
+  .socials-header { margin-bottom: 2.5rem; }
   .social-cards {
-    gap: 1.5rem;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   .social-card {
-    min-width: 120px;
+    min-width: unset;
     padding: 1.5rem 1rem;
+    width: 100%;
   }
 }

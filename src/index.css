@@ -87,9 +87,9 @@ button {
 }
 
 @media (max-width: 600px) {
-  .container { padding: 0 1.2rem; }
-  .section { padding: 3rem 0; }
-  .section-title { font-size: 2.8rem; }
+  .container { padding: 0 1rem; }
+  .section { padding: 2.5rem 0; }
+  .section-title { letter-spacing: 0px; margin-bottom: 1.8rem; }
 }
 
 .section {
@@ -100,7 +100,7 @@ button {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: 4.5rem;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 2.5rem;

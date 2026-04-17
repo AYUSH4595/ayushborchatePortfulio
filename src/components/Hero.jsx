@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal, Download, Code2, Smartphone, Layers } from 'lucide-react';
+import { Download, Code2, Smartphone, Layers } from 'lucide-react';
 import { FaLinkedin, FaGithub, FaInstagram, FaGitlab } from 'react-icons/fa';
 import './Hero.css';
 
@@ -32,11 +32,18 @@ const FloatingWidget = ({ icon: Icon, delay, yOffset, label }) => (
 
 const Hero = ({ onResumeOpen }) => {
   const [roleIndex, setRoleIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Slower interval so user can actually read the text
     const t = setInterval(() => setRoleIndex(p => (p + 1) % roles.length), 4500);
     return () => clearInterval(t);
+  }, []);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
   }, []);
 
   const containerV = {
@@ -159,16 +166,20 @@ const Hero = ({ onResumeOpen }) => {
               </pre>
             </div>
 
-            {/* Floating Widgets around the center frame */}
-            <div className="floating-layer">
-              <FloatingWidget icon={Smartphone} delay={0} yOffset={15} label="UI Layer" />
-            </div>
-            <div className="floating-layer pos-2">
-              <FloatingWidget icon={Layers} delay={1.5} yOffset={-10} label="State Mgmt" />
-            </div>
-            <div className="floating-layer pos-3">
-              <FloatingWidget icon={Code2} delay={0.8} yOffset={20} label="API Service" />
-            </div>
+            {/* Floating Widgets - hidden on mobile */}
+            {!isMobile && (
+              <>
+                <div className="floating-layer">
+                  <FloatingWidget icon={Smartphone} delay={0} yOffset={15} label="UI Layer" />
+                </div>
+                <div className="floating-layer pos-2">
+                  <FloatingWidget icon={Layers} delay={1.5} yOffset={-10} label="State Mgmt" />
+                </div>
+                <div className="floating-layer pos-3">
+                  <FloatingWidget icon={Code2} delay={0.8} yOffset={20} label="API Service" />
+                </div>
+              </>
+            )}
 
           </div>
         </motion.div>
